@@ -61,3 +61,18 @@ body{font-size:16px}.authors,.venue,.paper-bottom,.paper-year,.paper-result,.pap
 .identity .latin-name{font-size:clamp(62px,8vw,108px)}
 .research-intro{max-width:34em;margin:13px 0 12px;font-size:15px;line-height:1.85;color:var(--ink);text-wrap:pretty}
 @media(max-width:760px){.identity .latin-name{font-size:clamp(53px,17.2vw,71px)}.research-intro{font-size:14px;line-height:1.9;max-width:26em}}
+
+/* Keep the name and portrait together on narrow screens. */
+@media(max-width:760px){
+  .cover-grid{grid-template-columns:minmax(0,1fr) clamp(92px,29vw,130px);gap:8px 18px;align-items:start;padding:28px 0}
+  .cover-grid>.identity{display:contents}
+  .identity .eyebrow{grid-column:1/-1;margin:0 0 13px;font-size:11px;letter-spacing:.06em;gap:12px}
+  .identity h1{grid-column:1;grid-row:2;margin:0;font-size:25px;line-height:1.35}
+  .identity .latin-name{grid-column:1;grid-row:3;margin:7px 0 0;font-size:clamp(40px,11.8vw,60px);line-height:.9;letter-spacing:-.065em}
+  .identity .latin-name em{padding-top:7px}
+  .cover-grid>.portrait{grid-column:2;grid-row:2/span 2;justify-self:end;align-self:center;width:100%;max-width:130px}
+  .cover-grid>.portrait figcaption{display:none}
+  .identity .affiliation{grid-column:1/-1;margin:18px 0 0;max-width:none}
+  .identity .research-intro{grid-column:1/-1;margin:7px 0 0;max-width:none}
+  .identity .identity-email{grid-column:1/-1;margin:5px 0 0}
+}
