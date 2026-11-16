@@ -47,10 +47,6 @@ const DATA = {
         {
           "label": "正式论文 · DOI",
           "url": "https://doi.org/10.1145/3615888.3627815"
-        },
-        {
-          "label": "公开代码与研究图件",
-          "url": "https://github.com/HIGISX/Shared-Bike-Location-Selection"
         }
       ]
     },
