@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#faf9f6" />
   <title>王润桥 | Runqiao Wang</title>
   <meta name="description" content="王润桥，中国科学院空天信息创新研究院科研助理，兰州交通大学测绘工程硕士。研究山地城市空间形态、地表热环境与城市公共设施空间配置。" />
-  <link rel="stylesheet" href="styles.css?v=29" />
-  <script src="main.js?v=14" defer></script>
+  <link rel="stylesheet" href="styles.css?v=30" />
+  <script src="main.js?v=15" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -20,7 +20,7 @@
         <span class="wordmark-text">王润桥<small>Research / Portfolio</small></span>
       </a>
       <nav aria-label="页面导航">
-        <a href="#research">研究</a>
+        <a href="#selected-research">研究</a>
         <a href="#papers">论文</a>
         <a href="#projects">项目</a>
         <a href="#conferences">会议</a>
@@ -39,7 +39,7 @@
           <span aria-hidden="true">/</span>
           科研助理
         </p>
-        <p class="research-intro">关注山地城市热环境、公共设施空间优化与 GeoAI。</p>
+        <p class="research-intro">研究城市空间形态与热环境、公共服务设施空间优化。</p>
         <a class="identity-email" id="contact" href="mailto:18272121913@163.com" aria-label="王润桥的邮箱：18272121913@163.com">18272121913@163.com</a>
 </div><figure class="portrait"><img src="runqiao-cutout.png" alt="王润桥的个人照片" width="1061" height="1483"><figcaption>RUNQIAO WANG / 王润桥</figcaption></figure></div><aside class="research-profile" id="research" aria-labelledby="research-title">
         <div class="profile-heading">
@@ -49,15 +49,15 @@
         <ol class="research-lines">
           <li>
             <span>R1</span>
-            <div><strong>山地城市与热环境</strong><p>研究城市空间形态、地形梯度与地表温度之间的关系。</p></div>
+            <div><strong>城市空间形态与热环境</strong><p>研究城市空间形态、地形梯度与地表温度之间的关系。</p></div>
           </li>
           <li>
             <span>R2</span>
-            <div><strong>设施配置与空间优化</strong><p>关注消防、公交与灾后空间覆盖的配置问题。</p></div>
+            <div><strong>公共服务设施空间优化</strong><p>关注消防、公交与灾后空间覆盖的配置问题。</p></div>
           </li>
           <li>
             <span>R3</span>
-            <div><strong>GeoAI 与空间决策</strong><p>结合多源数据、强化学习与空间分析方法。</p></div>
+            <div><strong>方法与技术</strong><p>结合多源地理空间数据、空间分析与强化学习，研究空间配置问题。</p></div>
           </li>
         </ol>
         
@@ -80,19 +80,69 @@
         
       </header><div class="section-body">
 
+      <p class="publication-note">第一作者或通讯作者 4 篇，合作论文 4 篇；统计含在审、返修稿件。* 表示通讯作者。</p>
       <div class="feature-grid" id="feature-list"></div>
 
       <div class="list-head">
-        <h3>其他论文</h3>
+        <h3>合作论文</h3>
         
       </div>
       <div class="paper-list" id="paper-list"></div>
 
       </div>
     </section>
-    <section class="section" id="books" aria-labelledby="books-title">
+
+    <section class="section selected-research" id="selected-research" aria-labelledby="selected-research-title">
       <header class="section-head">
         <p class="section-number">02</p>
+        <div><p class="section-kicker">Selected research</p><h2 id="selected-research-title">代表性研究</h2></div>
+        <p class="section-note">从研究问题到方法与开放资源。</p>
+      </header>
+      <div class="section-body research-stories">
+        <article class="research-story" id="thermal-research">
+          <p class="story-meta">01 / 城市热环境 · 硕士论文与相关研究</p>
+          <h3>山地城市空间形态与地表热环境</h3>
+          <p class="story-question">复杂地形下，城市空间形态与地表热环境的关系是否随地形梯度变化？</p>
+          <p>围绕山地城市的地形差异与多维空间形态，研究其对地表热环境的非线性影响，并探索热岛网络优化。关注形态、地形与热环境之间的联系，为山地城市空间优化提供研究依据。</p>
+          <ol class="method-flow" aria-label="研究思路">
+            <li><span>研究对象</span><strong>地形梯度与多维空间形态</strong></li>
+            <li><span>分析问题</span><strong>地表热环境的非线性响应</strong></li>
+            <li><span>拓展方向</span><strong>热岛网络优化</strong></li>
+          </ol>
+          <p class="story-evidence"><strong>对应成果：</strong>硕士论文《山地城市多维空间形态对地表热环境的非线性影响及热岛网络优化》；第一作者论文分别处于在审与已录用状态。</p>
+          <div class="resource-links"><a href="#papers">查看对应论文与状态 <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <article class="research-story" id="fire-research">
+          <p class="story-meta">02 / 应急设施配置 · 第一作者 · 在审</p>
+          <h3>FireDeploy-Net：移动消防力量的分时部署</h3>
+          <p class="story-question">如何在既有固定消防站基础上，配置能够分时驻防和再部署的移动消防单元？</p>
+          <p>研究多时段移动单元的空间配置，在累计移动距离约束下兼顾服务效益与超时响应。公开实现采用强化学习生成部署决策，并通过独立服务评价和有向最小费用匹配检查部署方案。</p>
+          <ol class="method-flow" aria-label="方法流程">
+            <li><span>输入</span><strong>需求、响应时间与候选位置</strong></li>
+            <li><span>决策</span><strong>分时驻防与再部署</strong></li>
+            <li><span>评估</span><strong>服务效益与移动距离</strong></li>
+          </ol>
+          <div class="resource-links"><a href="https://github.com/HIGISX/FireDeploy-Net" target="_blank" rel="noopener noreferrer">公开代码 <span aria-hidden="true">↗</span></a><a href="https://github.com/HIGISX/FireDeploy-Net/blob/main/docs/data_format.md" target="_blank" rel="noopener noreferrer">数据格式与运行说明 <span aria-hidden="true">↗</span></a></div>
+          <p class="resource-note">仓库提供合成示例；不包含真实北京数据与模型权重。公开实现的运行示例不等同于论文实验结果复现。</p>
+        </article>
+        <article class="research-story" id="bike-research">
+          <p class="story-meta">03 / 公共交通衔接 · 通讯作者 · 已发表</p>
+          <h3>多源地理空间数据驱动的共享单车选址</h3>
+          <p class="story-question">如何将单车使用需求与城市空间特征结合，优化武汉市共享单车投放位置？</p>
+          <p>结合共享单车 GPS、兴趣点、公共交通设施和人口数据，分析需求的空间分布及影响因素。基于最大覆盖选址模型，以需求覆盖为目标，采用遗传算法求解投放点布局。</p>
+          <ol class="method-flow" aria-label="研究流程">
+            <li><span>数据</span><strong>出行、POI 与人口</strong></li>
+            <li><span>分析</span><strong>空间分布与需求刻画</strong></li>
+            <li><span>优化</span><strong>最大覆盖选址</strong></li>
+          </ol>
+          <div class="resource-links"><a href="https://doi.org/10.1145/3615888.3627815" target="_blank" rel="noopener noreferrer">正式论文 · DOI <span aria-hidden="true">↗</span></a><a href="https://github.com/HIGISX/Shared-Bike-Location-Selection" target="_blank" rel="noopener noreferrer">公开代码与研究图件 <span aria-hidden="true">↗</span></a><a href="https://github.com/HIGISX/Shared-Bike-Location-Selection/blob/main/result/Result.jpg" target="_blank" rel="noopener noreferrer">查看选址结果图 <span aria-hidden="true">↗</span></a></div>
+          <p class="resource-note">代码仓库包含数据来源、方法流程与结果图件；原始数据的使用条件以其来源说明为准。</p>
+        </article>
+      </div>
+    </section>
+    <section class="section" id="books" aria-labelledby="books-title">
+      <header class="section-head">
+        <p class="section-number">03</p>
         <div><p class="section-kicker">Patents &amp; Books</p><h2 id="books-title">专利专著</h2></div>
       </header><div class="section-body">
         <div class="paper-list compact" id="other-list"></div>
@@ -101,7 +151,7 @@
 
     <section class="section" id="projects" aria-labelledby="projects-title">
       <header class="section-head">
-        <p class="section-number">03</p>
+        <p class="section-number">04</p>
         <div>
           <p class="section-kicker">Research projects</p>
           <h2 id="projects-title">科研项目</h2>
@@ -113,21 +163,26 @@
 
     <section class="section conferences-section" id="conferences" aria-labelledby="conferences-title">
       <header class="section-head">
-        <p class="section-number">04</p>
-        <div><p class="section-kicker">Conferences</p><h2 id="conferences-title">学术会议</h2></div>
+        <p class="section-number">05</p>
+        <div><p class="section-kicker">Conferences</p><h2 id="conferences-title">学术交流</h2></div>
       </header><div class="section-body">
-<ol class="dated-list conferences">
-              <li><time>2025.08</time><p>第二届全国信息地理学大会<span>成都 · 汇报</span></p></li>
+<h3 class="conference-subtitle">报告与会议组织</h3>
+            <ol class="dated-list conferences">
+              <li><time>2025.11</time><p>第五届社会地理计算暨中国遥感应用协会社会遥感地理计算专业委员会学术年会<span>北京 · 报告人、分会场召集人</span></p></li>
+              <li><time>2025.08</time><p>第二届全国信息地理学大会<span>成都 · 报告人</span></p></li>
+              <li><time>2023.11</time><p>2nd ACM SIGSPATIAL International Workshop on Spatial Big Data and AI for Industrial Applications<span>德国·汉堡 · 报告人（线上）</span></p></li>
+            </ol>
+            <h3 class="conference-subtitle secondary-subtitle">其他参会与志愿服务</h3>
+            <ol class="dated-list conferences">
               <li><time>2024.10</time><p>第六届城市遥感学术研讨会<span>乌鲁木齐 · 参会</span></p></li>
               <li><time>2024.09</time><p>第八届甘肃省遥感学会学术年会<span>兰州 · 志愿者</span></p></li>
-              <li><time>2023.11</time><p>ACM SIGSPATIAL Spatial Big Data and AI Workshop<span>Hamburg · 线上汇报</span></p></li>
               <li><time>2023.09</time><p>第十一届全国高校 GIS 论坛<span>兰州 · 参会</span></p></li>
             </ol></div>
     </section>
 
     <section class="section experience" id="experience" aria-labelledby="experience-title">
       <header class="section-head">
-        <p class="section-number">05</p>
+        <p class="section-number">06</p>
         <div>
           <p class="section-kicker">Background</p>
           <h2 id="experience-title">教育与经历</h2>
@@ -143,6 +198,7 @@
               <div class="timeline-body">
                 <h4><a href="https://www.lzjtu.edu.cn/" target="_blank" rel="noopener noreferrer">兰州交通大学</a> · <a href="https://cdxy.lzjtu.edu.cn/" target="_blank" rel="noopener noreferrer">测绘与地理信息学院</a></h4>
                 <p>测绘工程，硕士（已毕业）</p>
+                <p class="degree-thesis">硕士论文：山地城市多维空间形态对地表热环境的非线性影响及热岛网络优化</p>
 
                 <div class="mentor-details"><p class="mentor-label">硕士阶段导师</p><p><a href="https://faculty.lzjtu.edu.cn/zhouliang/zh_CN/index.htm" target="_blank" rel="noopener noreferrer">周亮</a> <span>教授</span><small>兰州交通大学测绘与地理信息学院院长<br>国家“万人计划”青年拔尖人才</small></p><p><a href="https://jszy.whu.edu.cn/yangbisheng/zh_CN/index.htm" target="_blank" rel="noopener noreferrer">杨必胜</a> <span>教授</span><small>武汉大学测绘遥感信息工程全国重点实验室主任<br>国家杰出青年科学基金获得者</small></p></div>
               </div>
@@ -163,9 +219,9 @@
             <h3 class="column-title">工作与实习</h3>
             <ol class="dated-list">
               <li><time>2026—至今</time><div class="history-body"><p><a href="https://www.aircas.ac.cn/" target="_blank" rel="noopener noreferrer">中国科学院空天信息创新研究院</a><span>科研助理</span></p><div class="mentor-details work-mentor"><p class="mentor-label">科研助理课题组导师</p><p><a href="https://people.ucas.ac.cn/~wangsh" target="_blank" rel="noopener noreferrer">王少华</a> <span>研究员</span></p></div></div></li>
-              <li><time>2024—2026</time><div class="history-body"><p><a href="https://link.springer.com/journal/41651" target="_blank" rel="noopener noreferrer">Journal of Geovisualization and Spatial Analysis</a><span>期刊助理</span></p></div></li>
-              <li><time>2023</time><div class="history-body"><p><a href="https://www.aircas.ac.cn/" target="_blank" rel="noopener noreferrer">中国科学院空天信息创新研究院</a><span>科研实习 · 地理空间分析与数据处理</span></p></div></li>
-              <li><time>2021</time><div class="history-body"><p>甘肃省煤炭地质局实习基地<span>控制测量与线路勘测实习</span></p></div></li>
+              <li><time>2024.01—2026.06</time><div class="history-body"><p><a href="https://link.springer.com/journal/41651" target="_blank" rel="noopener noreferrer">Journal of Geovisualization and Spatial Analysis</a><span>期刊助理 · 中科院一区 Top · ESCI</span></p></div></li>
+              <li><time>2023.04—2023.08</time><div class="history-body"><p><a href="https://www.aircas.ac.cn/" target="_blank" rel="noopener noreferrer">中国科学院空天信息创新研究院</a><span>科研实习 · 地理空间分析与数据处理</span></p></div></li>
+              <li><time>2021.07—2021.08</time><div class="history-body"><p>甘肃省煤炭地质局实习基地<span>控制测量与线路勘测实习</span></p></div></li>
             </ol>
           </section>
 
@@ -190,3 +246,4 @@
   
 </body>
 </html>
+
