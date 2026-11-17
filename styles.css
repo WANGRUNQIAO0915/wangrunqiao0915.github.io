@@ -47,7 +47,8 @@ a {
   transition: color 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
@@ -275,7 +276,8 @@ main {
   color: #ffffff;
 }
 
-.hero-jump {
+.hero-jump,
+.copy-email-btn {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -284,14 +286,26 @@ main {
   color: var(--ink-secondary);
   border: 1px solid var(--line);
   border-radius: 999px;
+  font-family: inherit;
   font-size: 13px;
   font-weight: 500;
+  line-height: 1.75;
+  cursor: pointer;
+  transition: color 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
 }
 
-.hero-jump:hover {
+.hero-jump:hover,
+.copy-email-btn:hover {
   color: var(--accent);
   border-color: var(--accent-border);
   background: var(--accent-soft);
+}
+
+.copy-email-btn.is-copied {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 600;
 }
 
 .portrait {
@@ -1371,6 +1385,7 @@ main {
 @media print {
   .site-header,
   .hero-actions,
+  .footer-actions,
   .skip {
     display: none;
   }
