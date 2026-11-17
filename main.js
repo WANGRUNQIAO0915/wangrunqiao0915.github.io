@@ -22,8 +22,13 @@ const DATA = {
         {
           "label": "公开代码 · FireDeploy-Net",
           "url": "https://github.com/HIGISX/FireDeploy-Net"
+        },
+        {
+          "label": "数据格式与运行说明",
+          "url": "https://github.com/HIGISX/FireDeploy-Net/blob/main/docs/data_format.md"
         }
-      ]
+      ],
+      "note": "仓库提供合成示例数据与运行说明；北京真实数据与模型权重暂不公开。"
     },
     {
       "year": "2026",
@@ -115,22 +120,22 @@ const DATA = {
     },
     {
       "year": "",
-      "title": "城市三维模拟",
-      "authors": "参与撰写",
+      "title": "山地城镇化",
+      "chapter": "第六章：山地城市热环境风险",
       "venue": "专著",
       "state": "参与撰写"
     },
     {
       "year": "",
-      "title": "山地城镇化",
-      "authors": "参与撰写",
+      "title": "城市三维模拟",
+      "chapter": "第八章：地形约束下的城市三维增长",
       "venue": "专著",
       "state": "参与撰写"
     },
     {
       "year": "",
       "title": "商业地理信息系统",
-      "authors": "参与撰写",
+      "chapter": "第五章：需求导向的设施空间配置优化",
       "venue": "专著",
       "state": "参与撰写"
     }
@@ -178,6 +183,14 @@ const splitState = state => {
   return { status: status || state, role: role || "" };
 };
 
+const statusClass = status => {
+  if (status.includes("已发表")) return "status-published";
+  if (status.includes("已录用")) return "status-accepted";
+  if (status.includes("返修")) return "status-revision";
+  if (status.includes("在审")) return "status-review";
+  return "status-neutral";
+};
+
 const resourceLinks = links => !links?.length ? "" : `<div class="resource-links">${links.map(link => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`).join("")}</div>`;
 
 const featuredPaper = (item, index) => {
@@ -185,18 +198,19 @@ const featuredPaper = (item, index) => {
   return `
     <article class="feature-paper">
       <div class="paper-top">
-        <span>论文 ${String(index + 1).padStart(2, "0")}</span>
-        <span class="role">${escapeHtml(role)}</span>
+        <span class="paper-num">论文 ${String(index + 1).padStart(2, "0")}</span>
+        <div class="paper-badges">
+          <span class="status-pill ${statusClass(status)}">${escapeHtml(status)}</span>
+          ${role ? `<span class="role-pill">${escapeHtml(role)}</span>` : ""}
+          ${item.index ? `<span class="index-tag">${escapeHtml(item.index)}</span>` : ""}
+          ${item.year ? `<span class="year-tag">${escapeHtml(item.year)}</span>` : ""}
+        </div>
       </div>
       <h3>${escapeHtml(item.title)}</h3>
       <p class="authors">${markAuthor(item.authors)}</p>
       <p class="venue">${escapeHtml(item.venue)}</p>
-      <div class="paper-bottom">
-        <span class="status">${escapeHtml(status)}</span>
-        <span class="index-tag">${escapeHtml(item.index || "")}</span>
-        <span class="year">${item.year ? escapeHtml(item.year) : ""}</span>
-      </div>
       ${resourceLinks(item.links)}
+      ${item.note ? `<p class="resource-note">${escapeHtml(item.note)}</p>` : ""}
     </article>
   `;
 };
@@ -205,36 +219,73 @@ const paperRow = (item, number) => {
   const { status, role } = splitState(item.state);
   return `
     <article class="paper-row">
-      <span class="paper-year">${number ? `论文 ${String(number).padStart(2, "0")}<br>` : ""}${item.year || "—"}</span>
-      <div>
+      <div class="paper-meta-col">
+        ${number ? `<span class="paper-num">论文 ${String(number).padStart(2, "0")}</span>` : ""}
+        <span class="paper-year">${item.year || "—"}</span>
+      </div>
+      <div class="paper-main-col">
         <h3>${escapeHtml(item.title)}</h3>
         <p class="authors">${markAuthor(item.authors)}</p>
         <p class="venue">${escapeHtml(item.venue)}</p>
+        <div class="paper-badges">
+          <span class="status-pill ${statusClass(status)}">${escapeHtml(status)}</span>
+          ${role ? `<span class="role-pill">${escapeHtml(role)}</span>` : ""}
+          ${item.index ? `<span class="index-tag">${escapeHtml(item.index)}</span>` : ""}
+        </div>
         ${resourceLinks(item.links)}
       </div>
-      <p class="paper-result">${escapeHtml(status)}${role ? `<br>${escapeHtml(role)}` : ""}${item.index ? `<br>${escapeHtml(item.index)}` : ""}</p>
     </article>
   `;
 };
 
 const projectRow = (item, index) => `
   <article class="project-row">
-    <span class="project-index">P.${String(index + 1).padStart(2, "0")}</span>
+    <div class="project-top">
+      <span class="project-index">P.${String(index + 1).padStart(2, "0")}</span>
+      <p class="project-meta">${escapeHtml(item.meta)}</p>
+    </div>
     <div class="project-main">
       <h3>${escapeHtml(item.title)}</h3>
       <p class="desc">${escapeHtml(item.desc)}</p>
-      <p class="project-meta">${escapeHtml(item.meta)}</p>
     </div>
-    <p class="project-role">${escapeHtml(item.work)}</p>
+    <div class="project-role"><span>个人承担</span><p>${escapeHtml(item.work)}</p></div>
   </article>
 `;
+
+const renderOthers = items => {
+  const patents = items.filter(item => !item.chapter);
+  const books = items.filter(item => item.chapter);
+  const patentHtml = patents.map(item => `
+    <article class="patent-card">
+      <div class="patent-top">
+        <div class="paper-badges">
+          <span class="index-tag">${escapeHtml(item.venue)}</span>
+          ${item.year ? `<span class="year-tag">${escapeHtml(item.year)}</span>` : ""}
+        </div>
+        <span class="status-pill status-accepted">${escapeHtml(item.state)}</span>
+      </div>
+      <h3>${escapeHtml(item.title)}</h3>
+      <p class="authors">发明人：${markAuthor(item.authors)}</p>
+    </article>
+  `).join("");
+  const booksHtml = !books.length ? "" : `
+    <div class="book-grid">
+      ${books.map(item => `
+        <article class="book-card">
+          <span class="book-kicker">${escapeHtml(item.venue)} · ${escapeHtml(item.state)}</span>
+          <h3>《${escapeHtml(item.title)}》</h3>
+          <p class="book-chapter">${escapeHtml(item.chapter)}</p>
+        </article>
+      `).join("")}
+    </div>
+  `;
+  return patentHtml + booksHtml;
+};
 
 const featured = DATA.papers.filter(item => item.featured);
 const otherPapers = DATA.papers.filter(item => !item.featured);
 
 document.getElementById("feature-list").innerHTML = featured.map(featuredPaper).join("");
 document.getElementById("paper-list").innerHTML = otherPapers.map((item, index) => paperRow(item, featured.length + index + 1)).join("");
-document.getElementById("other-list").innerHTML = DATA.others.map(item => paperRow(item)).join("");
+document.getElementById("other-list").innerHTML = renderOthers(DATA.others);
 document.getElementById("project-list").innerHTML = DATA.projects.map(projectRow).join("");
-
-
