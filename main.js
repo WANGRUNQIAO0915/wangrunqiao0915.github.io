@@ -289,3 +289,41 @@ document.getElementById("feature-list").innerHTML = featured.map(featuredPaper).
 document.getElementById("paper-list").innerHTML = otherPapers.map((item, index) => paperRow(item, featured.length + index + 1)).join("");
 document.getElementById("other-list").innerHTML = renderOthers(DATA.others);
 document.getElementById("project-list").innerHTML = DATA.projects.map(projectRow).join("");
+
+const copyText = async text => {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const input = document.createElement("textarea");
+  input.value = text;
+  input.setAttribute("readonly", "");
+  input.style.position = "fixed";
+  input.style.opacity = "0";
+  document.body.appendChild(input);
+  input.select();
+  document.execCommand("copy");
+  input.remove();
+};
+
+document.querySelectorAll("[data-copy-email]").forEach(button => {
+  let resetTimer = null;
+  const defaultLabel = button.textContent.trim();
+  button.addEventListener("click", async () => {
+    const email = button.getAttribute("data-copy-email");
+    if (!email) return;
+    try {
+      await copyText(email);
+      button.textContent = "已复制";
+      button.classList.add("is-copied");
+    } catch {
+      button.textContent = "复制失败";
+      button.classList.remove("is-copied");
+    }
+    if (resetTimer) window.clearTimeout(resetTimer);
+    resetTimer = window.setTimeout(() => {
+      button.textContent = defaultLabel;
+      button.classList.remove("is-copied");
+    }, 2000);
+  });
+});
