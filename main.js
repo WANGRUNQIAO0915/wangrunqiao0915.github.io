@@ -60,7 +60,7 @@ const DATA = {
       "title": "Constraint-Guided Heterogeneous Graph Reinforcement Learning for Spatial Coverage Optimization: A Post-Disaster UAV-BS Deployment Case Study.",
       "authors": "Pan, Y., Wang, R., Zhou, H., Zhang, K., Liang, H.*",
       "venue": "Electronics",
-      "state": "返修 · 第二作者",
+      "state": "已录用 · 第二作者",
       "index": "SCI 3区",
       "links": []
     },
